@@ -36,8 +36,6 @@ namespace SnakeGame
         Image[] food = new Image[countofimages];
         Random rnd = new Random();
         int HowToWin;
-
-        Rectangle globalrect;
         private void AddSnakePart(Point location)
         {
             Size siz = new Size(PartSizeX, PartSizeY);
@@ -162,19 +160,19 @@ namespace SnakeGame
         {
             Point loc = new Point();
             Size siz = new Size(PartSizeX, PartSizeY);
-            bool finalcheck = false;
-            bool[] fullcheck = new bool[SnakeParts.Length];
-            while (finalcheck == false)
+            bool finalCheck = false;
+            bool[] fullCheck = new bool[SnakeParts.Length];
+            while (finalCheck == false)
             {
                 loc.X = rnd.Next(Pb_Field.Width);
                 loc.Y = rnd.Next(Pb_Field.Height);
                 for (int i = 0; i < SnakeParts.Length; i++)
                 {
-                    fullcheck[i] = (loc != SnakeParts[i].Location);
+                    fullCheck[i] = (loc != SnakeParts[i].Location) && (loc.X % PartSizeX == 0) && (loc.Y % PartSizeY == 0);
                 }
-                if (!fullcheck.Contains<bool>(false))
+                if (!fullCheck.Contains<bool>(false))
                 {
-                    finalcheck = true;
+                    finalCheck = true;
                 }
 
             }
@@ -369,12 +367,24 @@ namespace SnakeGame
             if (SnakeMovingTimer.Enabled == true)
             {
                 SnakeMovingTimer.Stop();
+                Btn_Pause.ForeColor = Color.FromArgb(196, 110, 105);
             }
             else
             {
                 SnakeMovingTimer.Start();
+                Btn_Pause.ForeColor = Color.FromArgb(140, 196, 145);
             }
             Btn_Pause.Enabled = true;
+        }
+
+        private void MainForm_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_Deactivate(object sender, EventArgs e)
+        {
+            Btn_Pause.PerformClick();
         }
     }
 }

@@ -71,7 +71,7 @@ namespace SnakeGame
             this.Btn_Retry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(196)))), ((int)(((byte)(145)))));
             this.Btn_Retry.Location = new System.Drawing.Point(444, 41);
             this.Btn_Retry.Name = "Btn_Retry";
-            this.Btn_Retry.Size = new System.Drawing.Size(161, 38);
+            this.Btn_Retry.Size = new System.Drawing.Size(208, 38);
             this.Btn_Retry.TabIndex = 1;
             this.Btn_Retry.TabStop = false;
             this.Btn_Retry.Text = "Retry";
@@ -87,7 +87,7 @@ namespace SnakeGame
             this.Btn_Start.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(196)))), ((int)(((byte)(145)))));
             this.Btn_Start.Location = new System.Drawing.Point(444, 94);
             this.Btn_Start.Name = "Btn_Start";
-            this.Btn_Start.Size = new System.Drawing.Size(161, 38);
+            this.Btn_Start.Size = new System.Drawing.Size(208, 38);
             this.Btn_Start.TabIndex = 2;
             this.Btn_Start.TabStop = false;
             this.Btn_Start.Text = "Start";
@@ -103,10 +103,10 @@ namespace SnakeGame
             this.Btn_Pause.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(196)))), ((int)(((byte)(145)))));
             this.Btn_Pause.Location = new System.Drawing.Point(444, 147);
             this.Btn_Pause.Name = "Btn_Pause";
-            this.Btn_Pause.Size = new System.Drawing.Size(161, 38);
+            this.Btn_Pause.Size = new System.Drawing.Size(208, 38);
             this.Btn_Pause.TabIndex = 3;
             this.Btn_Pause.TabStop = false;
-            this.Btn_Pause.Text = "Pause";
+            this.Btn_Pause.Text = "Pause / Resume";
             this.Btn_Pause.UseCompatibleTextRendering = true;
             this.Btn_Pause.UseVisualStyleBackColor = true;
             this.Btn_Pause.Click += new System.EventHandler(this.Btn_Pause_Click);
@@ -119,7 +119,7 @@ namespace SnakeGame
             this.Btn_Exit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(196)))), ((int)(((byte)(145)))));
             this.Btn_Exit.Location = new System.Drawing.Point(444, 354);
             this.Btn_Exit.Name = "Btn_Exit";
-            this.Btn_Exit.Size = new System.Drawing.Size(161, 38);
+            this.Btn_Exit.Size = new System.Drawing.Size(208, 38);
             this.Btn_Exit.TabIndex = 4;
             this.Btn_Exit.TabStop = false;
             this.Btn_Exit.Text = "Exit";
@@ -146,7 +146,7 @@ namespace SnakeGame
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.Location = new System.Drawing.Point(499, 208);
+            this.pictureBox1.Location = new System.Drawing.Point(521, 211);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(50, 50);
             this.pictureBox1.TabIndex = 6;
@@ -156,7 +156,7 @@ namespace SnakeGame
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Black;
-            this.pictureBox2.Location = new System.Drawing.Point(499, 264);
+            this.pictureBox2.Location = new System.Drawing.Point(521, 267);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 50);
             this.pictureBox2.TabIndex = 7;
@@ -166,7 +166,7 @@ namespace SnakeGame
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Black;
-            this.pictureBox3.Location = new System.Drawing.Point(443, 264);
+            this.pictureBox3.Location = new System.Drawing.Point(465, 267);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(50, 50);
             this.pictureBox3.TabIndex = 8;
@@ -176,7 +176,7 @@ namespace SnakeGame
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Black;
-            this.pictureBox4.Location = new System.Drawing.Point(555, 264);
+            this.pictureBox4.Location = new System.Drawing.Point(577, 267);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(50, 50);
             this.pictureBox4.TabIndex = 9;
@@ -187,7 +187,7 @@ namespace SnakeGame
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(196)))), ((int)(((byte)(145)))));
-            this.label1.Location = new System.Drawing.Point(485, 317);
+            this.label1.Location = new System.Drawing.Point(507, 320);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 10;
@@ -218,10 +218,12 @@ namespace SnakeGame
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.Text = "Snake";
+            this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            this.Leave += new System.EventHandler(this.MainForm_Leave);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.Pb_Field)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
