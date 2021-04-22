@@ -1,0 +1,13 @@
+C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\bin\Release\SnakeGame.exe.config
+C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\bin\Release\SnakeGame.exe
+C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\bin\Release\SnakeGame.pdb
+C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\obj\Release\SnakeGame.csprojAssemblyReference.cache
+C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\obj\Release\SnakeGame.FailForm.resources
+C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\obj\Release\SnakeGame.MainForm.resources
+C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\obj\Release\SnakeGame.Properties.Resources.resources
+C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\obj\Release\SnakeGame.StartMenu.resources
+C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\obj\Release\SnakeGame.YouWin.resources
+C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\obj\Release\SnakeGame.csproj.GenerateResource.cache
+C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\obj\Release\SnakeGame.csproj.CoreCompileInputs.cache
+C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\obj\Release\SnakeGame.exe
+C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\obj\Release\SnakeGame.pdb
