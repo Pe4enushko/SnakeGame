@@ -50,7 +50,10 @@ namespace SnakeGame
             for (int i = 0; i <= count - 1; i++)
             {
                 Array.Resize<Image>(ref food, food.Length + 1);
-                food[i] = Image.FromFile($@"Resources/Food/{i}.png");
+                Image TempImg = Image.FromFile($@"Resources/Food/{i}.png");
+                Bitmap Mp = new Bitmap(TempImg,imgsiz);
+                food[i] = Mp;
+                
             }
         }
 
@@ -61,6 +64,7 @@ namespace SnakeGame
             SolidBrush brush = new SolidBrush(Color.ForestGreen);
             SP.DrawRectangles(pen, SnakeParts);
             SP.FillRectangles(brush, SnakeParts);
+            RectangleF sz = new RectangleF();
             SP.DrawImage(food[rndimageindex], foodrect.Location); // рисуем рандомный спрайт еды на месте
             Pb_Field.Image = map;
         }
