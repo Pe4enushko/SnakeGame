@@ -23,17 +23,19 @@ namespace SnakeGame
             Pb_Field.Image = map;
             PartSizeX = (int)Pb_Field.Width / 20;
             PartSizeY = (int)Pb_Field.Height / 20;
-            LoadImages(countofimages);
+            countofimages = new DirectoryInfo("Resources/Food").GetFiles().Length;
             HowToWin = (Pb_Field.Width * Pb_Field.Height) / (PartSizeX * PartSizeY);
+            LoadImages(countofimages);
         }
-        const int countofimages = 2;
+        Size imgsiz = new Size(25,25);
+        int countofimages;
         int rndimageindex;
         Rectangle foodrect;
         string direction;
         Rectangle[] SnakeParts = new Rectangle[0];
         int PartSizeX;
         int PartSizeY;
-        Image[] food = new Image[countofimages];
+        Image[] food = new Image[1];
         Random rnd = new Random();
         int HowToWin;
         private void AddSnakePart(Point location)
@@ -45,8 +47,9 @@ namespace SnakeGame
 
         private void LoadImages(int count)
         {
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i <= count - 1; i++)
             {
+                Array.Resize<Image>(ref food, food.Length + 1);
                 food[i] = Image.FromFile($@"Resources/Food/{i}.png");
             }
         }
@@ -58,7 +61,7 @@ namespace SnakeGame
             SolidBrush brush = new SolidBrush(Color.ForestGreen);
             SP.DrawRectangles(pen, SnakeParts);
             SP.FillRectangles(brush, SnakeParts);
-            SP.DrawImage(food[rnd.Next(rndimageindex)], foodrect.Location); // рисуем рандомный спрайт еды на месте
+            SP.DrawImage(food[rndimageindex], foodrect.Location); // рисуем рандомный спрайт еды на месте
             Pb_Field.Image = map;
         }
         private void Exit_Click(object sender, EventArgs e)
@@ -75,19 +78,19 @@ namespace SnakeGame
         private int BorderCase() // int - номер стороны
         {
             int cs = 0;
-                if (SnakeParts[0].X > Pb_Field.Width - PartSizeX)
+                if ((SnakeParts[0].X >= Pb_Field.Width - PartSizeX) && (direction == "Right"))
                 {
                     cs = 1;
                 }
-                if (SnakeParts[0].X < 0)
+                if ((SnakeParts[0].X <= 0) && (direction == "Left"))
                 {
                     cs = 2;
                 }
-                if (SnakeParts[0].Y > Pb_Field.Height - PartSizeY)
+                if ((SnakeParts[0].Y >= Pb_Field.Height - PartSizeY) && (direction == "Down"))
                 {
                     cs = 3;
                 }
-                if (SnakeParts[0].Y < 0)
+                if ((SnakeParts[0].Y <= 0) && (direction == "Up"))
                 {
                     cs = 4;
                 }
@@ -114,7 +117,11 @@ namespace SnakeGame
         }
         private void FirstSnakeMove()
         {
-            if (BorderCase() == 0)
+            if (BorderCase() != 0)
+            {
+                BorderBlock(BorderCase());
+            }
+            else
             {
                 switch (direction)
                 {
@@ -140,10 +147,6 @@ namespace SnakeGame
                         }
                 }
             }
-            else
-            {
-                BorderBlock(BorderCase());
-            }
         }
 
         private void FullSnakeMove()
@@ -158,6 +161,7 @@ namespace SnakeGame
 
         private void SpawnFood()
         {
+            rndimageindex = rnd.Next(countofimages);
             Point loc = new Point();
             Size siz = new Size(PartSizeX, PartSizeY);
             bool finalCheck = false;
@@ -177,7 +181,6 @@ namespace SnakeGame
 
             }
             foodrect = new Rectangle(loc, siz);
-            rndimageindex = rnd.Next(countofimages-1);
         }
 
         private void FailCheck()
@@ -185,13 +188,13 @@ namespace SnakeGame
             bool[] Collidecheck = new bool[SnakeParts.Length];
             for (int i = 1; i < SnakeParts.Length; i++)
             {
-                Collidecheck[i] = (SnakeParts[0] == SnakeParts[i]);
+                Collidecheck[i] = (SnakeParts[0].Location == SnakeParts[i].Location);
             }
             if (Collidecheck.Contains<bool>(true))
             {
                 FailForm fail = new FailForm();
-                SnakeMovingTimer.Enabled = false;
                 fail.ShowDialog();
+                SnakeMovingTimer.Enabled = false;
             }
         }
         private void CheckFoodEaten()
@@ -215,8 +218,6 @@ namespace SnakeGame
         }
         private void SnakeMovingTimer_Tick(object sender, EventArgs e)
         {
-            WinCheck();
-            FailCheck();
             CheckFoodEaten();
             if (foodrect.IsEmpty)
             {
@@ -224,6 +225,8 @@ namespace SnakeGame
             }    
             FullSnakeMove();
             FirstSnakeMove();
+            WinCheck();
+            FailCheck();
             DrawSnake();
         }
        
@@ -285,41 +288,49 @@ namespace SnakeGame
            {
                case Keys.W:
                    {
+                        if (direction != "Down")
                        direction = "Up";
                        break;
                    }
                case Keys.A:
                    {
+                        if (direction != "Right")
                        direction = "Left";
                        break;
                    }
                case Keys.D:
                    {
+                        if (direction != "Left")
                        direction = "Right";
                        break;
                    }
                case Keys.S:
                    {
+                        if (direction != "Up")
                        direction = "Down";
                        break;
                    }
                case Keys.Up:
                    {
+                        if (direction != "Down")
                        direction = "Up";
                        break;
                    }
                case Keys.Left:
                    {
+                        if (direction != "Right")
                        direction = "Left";
                        break;
                    }
                case Keys.Right:
                    {
+                        if (direction != "Left")
                        direction = "Right";
                        break;
                    }
                case Keys.Down:
                    {
+                        if (direction != "Up")
                        direction = "Down";
                        break;
                    }

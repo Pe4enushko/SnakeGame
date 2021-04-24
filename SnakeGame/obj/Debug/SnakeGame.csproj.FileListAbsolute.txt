@@ -10,3 +10,4 @@ C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.pdb
 C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.MainForm.resources
 C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.StartMenu.resources
 C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.FailForm.resources
+C:\Users\Mr.stone\source\repos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.YouWin.resources
